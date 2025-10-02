@@ -28,11 +28,21 @@
 			"name": "subject",
 			"value": "{{selector:div.ha > h2}}",
 			"type": "text"
+		},
+		{
+			"name": "author",
+			"value": "{{selector:span[class=\\\"gD\\\"]?name|wikilink|first}}",
+			"type": "multitext"
+		},
+		{
+			"name": "email",
+			"value": "{{selector:span[class=\\\"gD\\\"]?email|first}}",
+			"type": "multitext"
 		}
 	],
 	"triggers": [
 		"https://mail.google.com/mail"
 	],
-	"noteNameFormat": "{{selector:span[class=\"g3\"]?title|date:\"YYYY-MM-DD\"}} MAIL {{selector:div.ha > h2|safe_name}}",
+	"noteNameFormat": "{{selector:span[class=\"g3\"]?title|first|date:\"YYYY-MM-DD\"}} MAIL {{selector:div.ha > h2|safe_name}}",
 	"path": "mail"
 }
