@@ -2,7 +2,7 @@
 	"schemaVersion": "0.1.0",
 	"name": "Google Mail",
 	"behavior": "create",
-	"noteContentFormat": "\n#mail/unread\n\n> [!INFO]+ Message details\n> Received: {{selector:span[class=\"g3\"]?title|last|date:\"YYYY-MM-DDTHH:mm\"}}\n> Subject: {{selector:div.ha > h2}}\n\n\n# {{selector:div.ha > h2}}\n\n{{selectorHtml:div.a3s|replace:\"tbody\":\"\"|replace:\"table\":\"\"|replace:\"td\":\"\"|replace:\"tr\":\"\"|markdown|strip_tags:(\"border\")|replace:\"<>\":\"\"|replace:\"     \":\"\"|replace:\"    \":\"\"}}\n",
+	"noteContentFormat": "\n#mail/unread\n\n> [!INFO]+ Message details\n> Received: {{selector:div.adn.ads:not([style*=\"display: none\"]) .gE.iv.gt span.g3?title|first|date:\"YYYY-MM-DDTHH:mm\"}}\n> Subject: {{selector:div.ha:not(:where([style*=\"display: none\"]) *) > h2|first}}\n\n\n# {{selector:div.ha:not(:where([style*=\"display: none\"]) *) > h2|first}}\n\n{{selectorHtml:div.a3s:not(:where([style*=\"display: none\"]) *)|first|remove_tags:(\"table,td,tr,border\")|markdown}}",
 	"properties": [
 		{
 			"name": "created",
@@ -21,28 +21,33 @@
 		},
 		{
 			"name": "received",
-			"value": "{{selector:span[class=\\\"g3\\\"]?title|last|date:\\\"YYYY-MM-DDTHH:mm\\\"}}",
+			"value": "{{selector:div.adn.ads:not([style*=\\\"display: none\\\"]) .gE.iv.gt span.g3?title|first|date:\\\"YYYY-MM-DDTHH:mm\\\"}}",
 			"type": "datetime"
 		},
 		{
 			"name": "subject",
-			"value": "{{selector:div.ha > h2}}",
+			"value": "{{selector:div.ha:not(:where([style*=\\\"display: none\\\"]) *) > h2|first}}",
 			"type": "text"
 		},
 		{
 			"name": "author",
-			"value": "{{selector:span[class=\\\"gD\\\"]?name|wikilink|first}}",
+			"value": "{{selector:span[class=\\\"gD\\\"]:not(:where([style*=\\\"display: none\\\"]) *)?name|wikilink|first}}",
 			"type": "multitext"
 		},
 		{
-			"name": "email",
-			"value": "{{selector:span[class=\\\"gD\\\"]?email|first}}",
+			"name": "senderEmail",
+			"value": "{{selector:span[class=\\\"gD\\\"]:not(:where([style*=\\\"display: none\\\"]) *)?email|first}}",
+			"type": "multitext"
+		},
+		{
+			"name": "tags",
+			"value": "email,clippings",
 			"type": "multitext"
 		}
 	],
 	"triggers": [
 		"https://mail.google.com/mail"
 	],
-	"noteNameFormat": "{{selector:span[class=\"g3\"]?title|first|date:\"YYYY-MM-DD\"}} MAIL {{selector:div.ha > h2|safe_name}}",
+	"noteNameFormat": "{{selector:div.adn.ads:not([style*=\"display: none\"]) .gE.iv.gt span.g3?title|first|date:\"YYYY-MM-DD\"}} MAIL {{selector:div.ha:not(:where([style*=\"display: none\"]) *) > h2|safe_name}}",
 	"path": "mail"
 }
