@@ -1,0 +1,53 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "wikipedia.org",
+	"behavior": "create",
+	"noteContentFormat": "{{selectorHtml:#mw-content-text|remove_html:(\".navbox,.printfooter,.side-box\")|markdown}}",
+	"properties": [
+		{
+			"name": "created",
+			"value": "{{time|date:\\\"YYYY-MM-DDTHH:mm:ssZ\\\"}}",
+			"type": "datetime"
+		},
+		{
+			"name": "reviewed",
+			"value": "",
+			"type": "datetime"
+		},
+		{
+			"name": "tags",
+			"value": "webclip",
+			"type": "multitext"
+		},
+		{
+			"name": "url",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "title",
+			"value": "{{title}}",
+			"type": "text"
+		},
+		{
+			"name": "author",
+			"value": "Wikipedia",
+			"type": "multitext"
+		},
+		{
+			"name": "description",
+			"value": "{{description}}",
+			"type": "text"
+		},
+		{
+			"name": "status",
+			"value": "unread",
+			"type": "multitext"
+		}
+	],
+	"triggers": [
+		"/^https:\\/\\/.+wikipedia\\.org\\/wiki\\/.+$/"
+	],
+	"noteNameFormat": "{{title}}",
+	"path": "Clippings"
+}

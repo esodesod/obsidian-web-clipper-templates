@@ -1,0 +1,51 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Reddit Post legacy",
+	"behavior": "create",
+	"noteContentFormat": "\n> Posted in **{{selector:shreddit-post?subreddit-prefixed-name}}** by *{{selector:shreddit-post?author}}* at {{selector:shreddit-post?created-timestamp|date:\"YYYY-MM-DDTHH:mm:ssZ\"}} (⬆️ {{selector:shreddit-post?score}})\n\n\n# {{selector:shreddit-post?post-title|trim}}\n\n{{selectorHtml:shreddit-post > div[class=\"text-neutral-content\"]|markdown}}\n\n{{selector:zoomable-img > img?src|image}}\n\n## Comments ({{selector:shreddit-comment-tree?totalcomments}})\n\n(WIP: get the first author, and first comment from arrays)\n\n### {{selector:shreddit-comment-tree > shreddit-comment?author|first}}:\n> {{selector:shreddit-comment-tree > shreddit-comment > div[slot=comment]|first}}",
+	"properties": [
+		{
+			"name": "created",
+			"value": "{{time|date:\\\"YYYY-MM-DDTHH:mm:ssZ\\\"}}",
+			"type": "datetime"
+		},
+		{
+			"name": "reviewed",
+			"value": "",
+			"type": "datetime"
+		},
+		{
+			"name": "url",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "tags",
+			"value": "webclip/reddit",
+			"type": "multitext"
+		},
+		{
+			"name": "title",
+			"value": "{{selector:shreddit-post?post-title|trim}}",
+			"type": "text"
+		},
+		{
+			"name": "published",
+			"value": "{{selector:shreddit-post?created-timestamp|date:\\\"YYYY-MM-DDTHH:mm:ssZ\\\"}}",
+			"type": "date"
+		},
+		{
+			"name": "subreddit",
+			"value": "{{selector:shreddit-post?subreddit-prefixed-name}}",
+			"type": "text"
+		},
+		{
+			"name": "status",
+			"value": "unread",
+			"type": "multitext"
+		}
+	],
+	"triggers": [],
+	"noteNameFormat": "{{selector:shreddit-post?created-timestamp|date:\"YYYY-MM-DD\"}} REDDIT {{selector:shreddit-post?post-title|trim|safe_name}}",
+	"path": "webclips"
+}
