@@ -2,17 +2,22 @@
 	"schemaVersion": "0.1.0",
 	"name": "Default",
 	"behavior": "create",
-	"noteContentFormat": "\n#webclip/unread\n\n# {{title}}\n\n{{content}}",
+	"noteContentFormat": "\n# {{title}}\n\n{{content}}",
 	"properties": [
 		{
 			"name": "created",
 			"value": "{{time|date:\\\"YYYY-MM-DDTHH:mm:ssZ\\\"}}",
-			"type": "date"
+			"type": "datetime"
 		},
 		{
 			"name": "reviewed",
 			"value": "",
-			"type": "text"
+			"type": "datetime"
+		},
+		{
+			"name": "tags",
+			"value": "webclip",
+			"type": "multitext"
 		},
 		{
 			"name": "url",
@@ -38,6 +43,11 @@
 			"name": "description",
 			"value": "{{description}}",
 			"type": "text"
+		},
+		{
+			"name": "status",
+			"value": "unread",
+			"type": "multitext"
 		}
 	],
 	"triggers": [],
