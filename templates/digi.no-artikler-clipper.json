@@ -2,7 +2,7 @@
 	"schemaVersion": "0.1.0",
 	"name": "digi.no Artikler",
 	"behavior": "create",
-	"noteContentFormat": "\n#webclip/unread\n\n# {{title}}\n\nauthor:: {{selectorHtml:.items-start > div.flex-col|markdown}}\n\n> [!INFO]+ {{selectorHtml:.text-left > h1|markdown|strip_md|markdown}}\n{{selectorHtml:.text-left > h3|markdown|strip_md|blockquote}}\n{{selectorHtml:div[id=\"topImage\"] > img?src|image|blockquote}}\n{{selectorHtml:div[id=\"topImage\"] > img?alt|blockquote}}\n\n\n{{selectorHtml:.article|remove_html:(\".ad-label,.clear-both\")|markdown}}\n{{selectorHtml:.article|remove_html:(\".ad-label,.clear-both\")|markdown}}",
+	"noteContentFormat": "\n# {{title}}\n\nauthor:: {{selectorHtml:.items-start > div.flex-col|markdown}}\n\n> [!INFO]+ {{selectorHtml:.text-left > h1|markdown|strip_md|markdown}}\n{{selectorHtml:.text-left > h3|markdown|strip_md|blockquote}}\n{{selectorHtml:div[id=\"topImage\"] > img?src|image|blockquote}}\n{{selectorHtml:div[id=\"topImage\"] > img?alt|blockquote}}\n\n\n{{selectorHtml:.article|remove_html:(\".ad-label,.clear-both\")|markdown}}\n{{selectorHtml:.article|remove_html:(\".ad-label,.clear-both\")|markdown}}",
 	"properties": [
 		{
 			"name": "created",
@@ -13,6 +13,11 @@
 			"name": "reviewed",
 			"value": "",
 			"type": "datetime"
+		},
+		{
+			"name": "tags",
+			"value": "webclip",
+			"type": "multitext"
 		},
 		{
 			"name": "url",
@@ -32,12 +37,17 @@
 		{
 			"name": "published",
 			"value": "{{published|date:\\\"YYYY-MM-DD\\\"}}",
-			"type": "datetime"
+			"type": "date"
 		},
 		{
 			"name": "description",
 			"value": "{{description}}",
 			"type": "text"
+		},
+		{
+			"name": "status",
+			"value": "unread",
+			"type": "multitext"
 		}
 	],
 	"triggers": [

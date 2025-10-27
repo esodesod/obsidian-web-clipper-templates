@@ -2,17 +2,22 @@
 	"schemaVersion": "0.1.0",
 	"name": "VMware Blog",
 	"behavior": "create",
-	"noteContentFormat": "\n#webclip/unread\n\n# {{title}}\n\n{{selectorHtml:div.article-body|markdown}}",
+	"noteContentFormat": "\n# {{title}}\n\n{{selectorHtml:div.article-body|markdown}}",
 	"properties": [
 		{
 			"name": "created",
 			"value": "{{time|date:\\\"YYYY-MM-DDTHH:mm:ssZ\\\"}}",
-			"type": "date"
+			"type": "datetime"
 		},
 		{
 			"name": "reviewed",
 			"value": "",
-			"type": "text"
+			"type": "datetime"
+		},
+		{
+			"name": "tags",
+			"value": "webclip/vmware",
+			"type": "multitext"
 		},
 		{
 			"name": "url",
@@ -38,6 +43,11 @@
 			"name": "description",
 			"value": "{{description}}",
 			"type": "text"
+		},
+		{
+			"name": "status",
+			"value": "unread",
+			"type": "multitext"
 		}
 	],
 	"triggers": [

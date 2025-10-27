@@ -15,6 +15,11 @@
 			"type": "datetime"
 		},
 		{
+			"name": "tags",
+			"value": "webclip/github/readme",
+			"type": "multitext"
+		},
+		{
 			"name": "url",
 			"value": "{{url}}",
 			"type": "text"
