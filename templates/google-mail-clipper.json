@@ -2,7 +2,7 @@
 	"schemaVersion": "0.1.0",
 	"name": "Google Mail",
 	"behavior": "create",
-	"noteContentFormat": "\n#mail/unread\n\n> [!INFO]+ Message details\n> Received: {{selector:div.adn.ads:not([style*=\"display: none\"]) .gE.iv.gt span.g3?title|first|date:\"YYYY-MM-DDTHH:mm\"}}\n> Subject: {{selector:div.ha:not(:where([style*=\"display: none\"]) *) > h2|first}}\n\n\n# {{selector:div.ha:not(:where([style*=\"display: none\"]) *) > h2|first}}\n\n{{selectorHtml:div.a3s:not(:where([style*=\"display: none\"]) *)|first|remove_tags:(\"table,td,tr,border\")|markdown}}",
+	"noteContentFormat": "\n> [!INFO]+ Message details\n> Received: {{selector:div.adn.ads:not([style*=\"display: none\"]) .gE.iv.gt span.g3?title|first|date:\"YYYY-MM-DDTHH:mm\"}}\n> Subject: {{selector:div.ha:not(:where([style*=\"display: none\"]) *) > h2|first}}\n\n\n# {{selector:div.ha:not(:where([style*=\"display: none\"]) *) > h2|first}}\n\n{{selectorHtml:div.a3s:not(:where([style*=\"display: none\"]) *)|first|remove_tags:(\"table,td,tr,border\")|markdown}}",
 	"properties": [
 		{
 			"name": "created",
@@ -41,7 +41,12 @@
 		},
 		{
 			"name": "tags",
-			"value": "email,clippings",
+			"value": "mail",
+			"type": "multitext"
+		},
+		{
+			"name": "status",
+			"value": "unread",
 			"type": "multitext"
 		}
 	],
