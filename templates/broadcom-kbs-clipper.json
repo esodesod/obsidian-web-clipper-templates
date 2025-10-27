@@ -2,7 +2,7 @@
 	"schemaVersion": "0.1.0",
 	"name": "Broadcom KBs",
 	"behavior": "create",
-	"noteContentFormat": "\n#webclip/unread\n\n# {{title}}\n\nArticle ID: {{selector:div.article-header-info > div:nth-child(1) > h4|split:\":\"|last|trim}}\nUpdated: {{selector:div.article-header-info > .article-updated-time > h4 > span[id=\"date_time\"]|date:\"YYYY-MM-DD\",\"MM-DD-YYYY\"}}\n\n{{selectorHtml:.article-detail-card|join:\"\\n\"|markdown}}\n\n## Codeblocks\n\n> Based on selector `font[face=\"Courier New\"]`\n\n```text\n{{selector:font[face=\"Courier New\"]|join:\"\\n\\n```bash\\n\"|replace:\"\\n```text\":```\\n\\n```text\"}}\n```\n\n\n> Based on selector `span[style=\"font-family: Courier New,Courier,monospace;\"`\n\n```bash\n{{selector:span[style=\"font-family: Courier New,Courier,monospace;\"]|join:\"\\n\\n```bash\\n\"|replace:\"\\n```bash\":```\\n\\n```bash\"}}\n```\n\n\n",
+	"noteContentFormat": "\n# {{title}}\n\nArticle ID: {{selector:div.article-header-info > div:nth-child(1) > h4|split:\":\"|last|trim}}\nUpdated: {{selector:div.article-header-info > .article-updated-time > h4 > span[id=\"date_time\"]|date:\"YYYY-MM-DD\",\"MM-DD-YYYY\"}}\n\n{{selectorHtml:.article-detail-card|join:\"\\n\"|markdown}}\n\n## Codeblocks\n\n> Based on selector `font[face=\"Courier New\"]`\n\n```text\n{{selector:font[face=\"Courier New\"]|join:\"\\n\\n```bash\\n\"|replace:\"\\n```text\":```\\n\\n```text\"}}\n```\n\n\n> Based on selector `span[style=\"font-family: Courier New,Courier,monospace;\"`\n\n```bash\n{{selector:span[style=\"font-family: Courier New,Courier,monospace;\"]|join:\"\\n\\n```bash\\n\"|replace:\"\\n```bash\":```\\n\\n```bash\"}}\n```\n\n\n",
 	"properties": [
 		{
 			"name": "created",
@@ -38,6 +38,16 @@
 			"name": "description",
 			"value": "{{description}}",
 			"type": "text"
+		},
+		{
+			"name": "tags",
+			"value": "webclip/vmware",
+			"type": "multitext"
+		},
+		{
+			"name": "status",
+			"value": "unread",
+			"type": "multitext"
 		}
 	],
 	"triggers": [
