@@ -1,0 +1,58 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "finansavisen.no",
+	"behavior": "create",
+	"noteContentFormat": "\n# {{title}}\n\n{{selector:.c-article-regular__datetime}}\n\n{{selector:.c-article-regular__body__preamble|blockquote}}\n\n{{selector:div.c-article__lead-asset > div > img?src|image}}\n\n{{selector:.c-image-caption|blockquote}}\n\n{{selectorHtml:.c-article-regular__body > .zephr-fade-out|remove_html:(\".dp-plugin-related\")|markdown}}",
+	"properties": [
+		{
+			"name": "created",
+			"value": "{{time|date:\\\"YYYY-MM-DDTHH:mm:ssZ\\\"}}",
+			"type": "datetime"
+		},
+		{
+			"name": "reviewed",
+			"value": "",
+			"type": "datetime"
+		},
+		{
+			"name": "url",
+			"value": "{{meta:property:og:url}}",
+			"type": "text"
+		},
+		{
+			"name": "title",
+			"value": "{{meta:property:og:title}}",
+			"type": "text"
+		},
+		{
+			"name": "author",
+			"value": "{{schema:[0]:@graph[5].author.name|split:\\\",\\\"|join}}",
+			"type": "multitext"
+		},
+		{
+			"name": "published",
+			"value": "{{meta:property:article:published_time}}",
+			"type": "date"
+		},
+		{
+			"name": "description",
+			"value": "{{description}}",
+			"type": "text"
+		},
+		{
+			"name": "tags",
+			"value": "webclip/finansavisen",
+			"type": "multitext"
+		},
+		{
+			"name": "status",
+			"value": "unread",
+			"type": "multitext"
+		}
+	],
+	"triggers": [
+		"https://www.finansavisen.no"
+	],
+	"noteNameFormat": "{{meta:property:article:published_time|date:\"YYYY-MM-DD\"}} WEB {{meta:property:og:title|safe_name}}",
+	"path": "webclips"
+}
