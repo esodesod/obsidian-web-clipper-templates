@@ -2,7 +2,7 @@
 	"schemaVersion": "0.1.0",
 	"name": "nrk.no",
 	"behavior": "create",
-	"noteContentFormat": "# {{title}}\n\n{{selectorHtml:#innhold|remove_html:(\".lp_related\")|replace:(\"/srcset=.*1600w, /g\":\"src=\")|remove_html:(\".authors,.article-dateline,.link__container\")|markdown}}",
+	"noteContentFormat": "# {{title}}\n\n{{selectorHtml:#innhold|remove_html:(\".lp_related\")|replace:\"/srcset=.*1600w, /g\":\"src=\"|remove_html:(\".authors,.article-dateline,.link__container\")|markdown}}",
 	"properties": [
 		{
 			"name": "created",
