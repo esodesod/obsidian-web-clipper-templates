@@ -1,0 +1,58 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "community.unifi.com",
+	"behavior": "create",
+	"noteContentFormat": "\n# {{title}}\n\n## Question by {{selector:.link__G8ABoye7|first}} ({{selectorHtml:.sc-eDPFhE.eKhfcU[tabindex=\"0\"]|first|markdown}})\n\n{{selectorHtml:.sc-gBcxFl.iPZTOx|markdown}}\n\n\n## Answers\n\n{% set posts = selectorHtml:.sc-eDPFhE.eXVfDg.sc-isewAz.dbGaXN %}\n{% set author = selectorHtml:.link__G8ABoye7 %}\n{% for post in posts %}\n\n{{post|markdown|blockquote}}\n\nPost:\n\n\n{% endfor %}",
+	"properties": [
+		{
+			"name": "created",
+			"value": "{{time|date:\\\"YYYY-MM-DDTHH:mm:ssZ\\\"}}",
+			"type": "datetime"
+		},
+		{
+			"name": "reviewed",
+			"value": "",
+			"type": "datetime"
+		},
+		{
+			"name": "tags",
+			"value": "webclip",
+			"type": "multitext"
+		},
+		{
+			"name": "url",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "title",
+			"value": "{{title}}",
+			"type": "text"
+		},
+		{
+			"name": "author",
+			"value": "{{author|split:\\\",\\\"|join}}",
+			"type": "multitext"
+		},
+		{
+			"name": "published",
+			"value": "{{published|date:\\\"YYYY-MM-DD\\\"}}",
+			"type": "date"
+		},
+		{
+			"name": "description",
+			"value": "{{description}}",
+			"type": "text"
+		},
+		{
+			"name": "status",
+			"value": "unread",
+			"type": "multitext"
+		}
+	],
+	"triggers": [
+		"https://community.ui.com/questions"
+	],
+	"noteNameFormat": "{{selector:div.sc-hIUIyC.frQyrq > div > div > div > span|first|date:\"YYYY-MM-DD\"}} WEB {{title|safe_name}}",
+	"path": "webclips"
+}
