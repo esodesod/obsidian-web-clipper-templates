@@ -30,19 +30,9 @@
 			"type": "text"
 		},
 		{
-			"name": "author",
-			"value": "{{author|split:\\\",\\\"|join}}",
-			"type": "multitext"
-		},
-		{
 			"name": "published",
-			"value": "{{published|date:\\\"YYYY-MM-DD\\\"}}",
+			"value": "{{selector:div.sc-hIUIyC.frQyrq > div > div > div > span|first|date:\\\"YYYY-MM-DD\\\"}}",
 			"type": "date"
-		},
-		{
-			"name": "description",
-			"value": "{{description}}",
-			"type": "text"
 		},
 		{
 			"name": "status",
