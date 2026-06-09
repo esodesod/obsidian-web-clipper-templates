@@ -1,0 +1,58 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "GitHub Discussions",
+	"behavior": "create",
+	"noteContentFormat": "\n# {{title}}\n\n({{selector:#partial-discussion-header > div.d-flex.flex-items-center.flex-wrap.mt-0.gh-header-meta > div.flex-auto.min-width-0.mb-2|split: \"· \"|last}})\n\n\n{% set comments = selectorHtml:td.comment-body.markdown-body %}\n{% set authors = selector:.timeline-comment-header-text a.Link--primary.text-bold?href %}\n{% set dates = selector:.timeline-comment-header-text relative-time[datetime]?datetime %}\n\n\n\n{% for comment in comments %}\n\n\n## {{authors[loop.index0]|safe_name}} wrote on {{dates[loop.index0]}}\n\n\n{{comment|markdown}}\n\n{% endfor %}",
+	"properties": [
+		{
+			"name": "created",
+			"value": "{{time|date:\\\"YYYY-MM-DDTHH:mm:ssZ\\\"}}",
+			"type": "datetime"
+		},
+		{
+			"name": "reviewed",
+			"value": "",
+			"type": "datetime"
+		},
+		{
+			"name": "url",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "title",
+			"value": "{{meta:property:og:title}}",
+			"type": "text"
+		},
+		{
+			"name": "author",
+			"value": "{{selector:.timeline-comment-header-text a.Link--primary.text-bold?href|first|safe_name}}",
+			"type": "multitext"
+		},
+		{
+			"name": "published",
+			"value": "{{selector:relative-time?datetime|first|date:\\\"YYYY-MM-DDTHH:mm:ssZ\\\"}}",
+			"type": "date"
+		},
+		{
+			"name": "description",
+			"value": "{{description}}",
+			"type": "text"
+		},
+		{
+			"name": "tags",
+			"value": "webclip/github/discussion",
+			"type": "multitext"
+		},
+		{
+			"name": "status",
+			"value": "unread",
+			"type": "text"
+		}
+	],
+	"triggers": [
+		"/^https.+github.+discussions.+$/"
+	],
+	"noteNameFormat": "{{selector:relative-time?datetime|first|date:\"YYYY-MM-DD\"}} WEB {{meta:property:og:title|safe_name}}",
+	"path": "webclips"
+}
