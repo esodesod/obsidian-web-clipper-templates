@@ -51,7 +51,7 @@
 		},
 		{
 			"name": "duration",
-			"value": "{{schema:@VideoObject:duration|replace:\\\"PT\\\":\\\"\\\":\\\"S\\\",\\\"\\\"|duration}}",
+			"value": "{{schema:@VideoObject:duration|duration:\\\"HH:mm:ss\\\"}}",
 			"type": "text"
 		},
 		{
