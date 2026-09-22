@@ -1,0 +1,58 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "finance.yahoo.com-markets",
+	"behavior": "create",
+	"noteContentFormat": "\n# {{title}}\n\n{{selectorHtml:article|first|remove_html:(\".ticker-list,.article-footer\")|markdown}}",
+	"properties": [
+		{
+			"name": "created",
+			"value": "{{time|date:\\\"YYYY-MM-DDTHH:mm:ssZ\\\"}}",
+			"type": "datetime"
+		},
+		{
+			"name": "reviewed",
+			"value": "",
+			"type": "datetime"
+		},
+		{
+			"name": "tags",
+			"value": "webclip",
+			"type": "multitext"
+		},
+		{
+			"name": "url",
+			"value": "{{meta:property:og:url}}",
+			"type": "text"
+		},
+		{
+			"name": "title",
+			"value": "{{title}}",
+			"type": "text"
+		},
+		{
+			"name": "author",
+			"value": "{{author|split:\\\",\\\"|join}}",
+			"type": "multitext"
+		},
+		{
+			"name": "published",
+			"value": "{{published|date:\\\"YYYY-MM-DDTHH:mm:ssZ\\\"}}",
+			"type": "date"
+		},
+		{
+			"name": "description",
+			"value": "{{description}}",
+			"type": "text"
+		},
+		{
+			"name": "status",
+			"value": "unread",
+			"type": "text"
+		}
+	],
+	"triggers": [
+		"https://finance.yahoo.com/markets"
+	],
+	"noteNameFormat": "{{published|date:\"YYYY-MM-DD\"}} WEB {{title|safe_name}}",
+	"path": "webclips"
+}
