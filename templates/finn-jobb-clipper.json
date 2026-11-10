@@ -2,7 +2,7 @@
 	"schemaVersion": "0.1.0",
 	"name": "Finn Jobb",
 	"behavior": "create",
-	"noteContentFormat": "\n> Sist endret: {{selector:time?datetime}}\n\n{{selectorHtml:section[aria-label=\"Jobbdetaljer\"]|markdown}}\n\n# Tilleggsinformasjon\n\n{{selectorHtml:article > aside|markdown}}",
+	"noteContentFormat": "\n> Publisert: {{selector:time?datetime|last}}\n> Frist: {{schema:[1]:script:ld\\+json.validThrough}}\n\n{{selectorHtml:section[aria-label=\"Jobbdetaljer\"]|markdown}}\n\n# Tilleggsinformasjon\n\n{{selectorHtml:article > aside|markdown}}",
 	"properties": [
 		{
 			"name": "created",
@@ -31,8 +31,8 @@
 		},
 		{
 			"name": "published",
-			"value": "{{selector:time?datetime}}",
-			"type": "date"
+			"value": "{{selector:time?datetime|last}}",
+			"type": "datetime"
 		},
 		{
 			"name": "description",
@@ -47,12 +47,12 @@
 		{
 			"name": "status",
 			"value": "unread",
-			"type": "multitext"
+			"type": "text"
 		}
 	],
 	"triggers": [
 		"https://www.finn.no/job"
 	],
-	"noteNameFormat": "{{selector:time?datetime|date:\"YYYY-MM-DD\"}} FINN {{title|safe_name}}",
+	"noteNameFormat": "{{schema:[1]:script:ld\\+json.datePosted|date:\"YYYY-MM-DD\"}} FINN {{title|safe_name}}",
 	"path": "webclips"
 }
